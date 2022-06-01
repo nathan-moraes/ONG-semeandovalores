@@ -1,0 +1,185 @@
+body {
+    background: linear-gradient(#31352e, #31352e52);
+    font-family: Courier;
+}
+
+p {
+    text-align: justify;
+}
+
+#auboutUsDiv {
+    display: inline-block;
+    position: relative;
+    width: 96%;
+    margin-top: 8%;
+    margin-bottom: 0%;
+    padding: 5%;
+    background: #d1e2c4;
+}
+
+#essentialItemsDiv {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0%;
+    padding: 3%;
+    background: #778a35;
+}
+
+#donationDiv {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0%;
+    padding: 3%;
+    background: #ebebe8;
+}
+
+#copyrightDiv {
+    padding: 3%;
+}
+
+#menu {
+    list-style-type: none;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: inline;
+    margin-top: 3%;
+}
+ 
+#title {
+    margin-top: 5%; 
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+#aboutUsBtn {
+    background: none;
+    color: white;
+    position: absolute;
+    left: 20%;   
+ 
+}
+
+#essentialItemsBtn {
+  color: white;
+  margin-left: 45%;
+  position: absolute;
+}
+
+#donationBtn {
+    color: white;
+    position: absolute;
+    margin-left: 75%;
+}
+
+#login {
+    height: 70px;
+    width: 70px;
+    position: relative;
+    float: right;
+    margin-right: 3%;
+}
+
+#titleAboutUs, #titleEssentialItems, #titleDonation {
+    margin-bottom: 3%;
+    color: #31352e;
+    font-size: 30px;
+    text-align: center;
+}
+
+#img1 {
+    float: left;
+    height: 300px;
+    width: 300px;
+}
+
+#img2 {
+    float: left;
+    height: 200px;
+    width: 200px; 
+}
+
+#imgItem {
+    display: flex;
+    justify-content: center;
+
+}
+
+#textAboutUs1 {
+    float: left; 
+    width: calc(100% - 350px - 10px); 
+    margin-left: 2%;
+}
+
+#donationList {
+    float: left; 
+    width: calc(100% - 350px - 10px); 
+    margin-left: 2%;
+}
+#icons {
+    display: inline-block;
+    justify-content: center;
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+#imgIcon {
+    
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.itemDonation1 {
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2% 1.2%;
+    padding: 10px;
+	border:2px solid #31352e;
+	border-radius: 10px;
+    float: left;
+    width: calc(50% - 2% - 10%); 
+}
+
+.itemDonation2 {
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2% 1.2%;
+    padding: 10px;
+	border:2px solid #31352e;
+	border-radius: 10px;
+    float: right;
+    width: calc(50% - 2% - 10%); 
+}
+
+#textDonation1, #textDonation2 {
+    text-align: center;
+}
+
+#copyright {
+    font-size: 12px;
+    text-align: center;
+    color: #31352e;
+}
+
+
+.menu :hover{
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.itemDonation1 :hover, #imgIcon{
+    -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    filter: drop-shadow(15px 10px 5px #788a354d,0.5);
+}
+
+.itemDonation2 :hover{
+    -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    filter: drop-shadow(15px 10px 5px #788a354d,0.5);
+}
+
+
+

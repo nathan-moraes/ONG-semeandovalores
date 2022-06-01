@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="decription" content="A ONG SEMEANDO VALORES atua em Curitiba  enfrentando desafios cada vez maiores para alimentar e garantir cuidados básicos de saúde para pessoas em situação de necessidade. Apesar das dificuldades, não estão sozinhos, trabalhamos com recuperação de vidas, buscando Ajudar tanto o físico, psicológico e o espiritual, e sempre semeando valores com as nossas novas companhias."/>
+        <title>ONG Semeando Valores</title>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="profileStyle.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    </head>
+    <body>     
+        <div class="profile">
+            <div>
+                <a href="LandingPageONG.html">
+                    <img id="backButton" src="back.png">
+                </a>
+            </div>
+            <img id="profileImg" src="login.png">
+            <p id="userName">Login</p>
+        </div>
+
+        <div id="description">
+            <p>A ONG Semeando Valores que surgiu como uma idea singela durante um trabalho da faculdade, uma ONG sem fins lucrativos totalmente focada em atender diretamente o publico beneficiado. Nos nossos planos de ação estão inclusos a arrecadação de roupas, comida, produtos de higiene e prestação de serviço comunitário.</p>
+            <p></p>
+            <p>Possuímos uma pequena equipe porem focada em fazer uma grande diferença, por isso precisamos de você que pode fazer uma doação de qualquer tipo, e também ajudaria muito compartilhar nosso site e nossa causa.</p>
+            <img id="img1" src="img7.png">
+        </div>
+
+        <div id="donationItems">
+            <button type="button" class="collapsible">Doe um valor</button>
+            <div class="content">
+            <p style="margin-left: 3%">Para doar uma quantia em dinheiro, preencha abaixo o valor que deseja doar e logo em seguida escaneie o qrcode de pagamento.</p>
+            
+                <div id="divDonation">
+                    <form name="moneyDonationForm"  id="moneyDonationForm" method="post">
+                    <input type="number" id="moneyDonation" name="donation" placeholder="R$ 00,00"> 
+                </div>
+                
+                <button id="donationButton" onclick="validateDonation(moneyDonationForm)" class="btn success">Doar</button>
+            </div>
+                
+            <button type="button" class="collapsible">Doe um serviço</button>
+            <div class="content">
+                <p style="margin-left: 3%">Para doar um serviço comunitário e sem fins lucratívos, é necessário responder algumas perguntas:</p> 
+    
+                <div id="divDonation">
+                    <form name="serviceForm" id="serviceForm" class="serviceForm" action="" method="post">
+                        <div id="divServiceType">
+                            <label for="servicetTypeTextField" class="form-label">Qual o tipo de serviço você gostaria de prestar?</label>
+                            <input type="text" id="serviceType" name="serviceType" class="serviceType" placeholder="Ex. pintura"> 
+                        </div>
+        
+                        <div id="divServiceType">
+                            <label for="dateTextField" class="form-label">Qual data você está disponível para nos ajudar?</label>
+                            <input type="date" id="date" name="date" class="date">                
+                        </div>
+                        <button id="btn" class="btn success" >Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div> 
+                <button type="button" class="collapsible">Doe objetos</button>
+                <div class="content" style="margin: 3%;">
+                    <p>Para a doação de objetos, roupas e alimentos não perecíveis é muito simples:</p>
+                    <p>Encontre nossa unidade de coleta mais próxima a sua residência, ou entre em contato conosco a partir do email <b><a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRzCMpwZxmfNTfCprTCShnkbFdqMtnvntQdDBHjqQddjldjFbHMVqFjrxKwtSkjbKtWkGHQW">semeandovalores@ong.com</a></b></p>
+                </div>
+            </div>
+            
+        <div id="modalLogin" class="modal">
+            <div class="modal-content">
+                <span class="close"><a href="LandingPageONG.html">&times;</a></span>
+                
+                <div id="titleLogin" style="border-radius: 10px;">
+                    <p id="loginTitle">Login</p>
+                </div>
+
+                <div id="loginForm">
+                    <form name="formLogin" action="" method="POST">
+                        <div id="divEmail">
+                            <label for="emailLogin" class="form-label">Email:</label>
+                            <input type="text" id="emailLogin" name="emailLogin" placeholder="exemplo@email.com">
+                        </div>
+        
+                        <div id="divPassword">
+                            <label for="passwordLogin" class="form-label">Senha:</label>
+                            <input type="password" id="passwordLogin" name="passwordLogin" placeholder="******">
+                        </div>
+        
+                        <button id="myBtn" style="margin: 3%;" class="btn success" onclick="validateLogin(formLogin)">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalQrcode" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="closeQrcode" onclick="closeQrcodeModal();">&times;</span>
+                <p id="donationTitle">Obrigado pela doação!</p>
+                <p style="margin: 2%;">Falta apenas um último passo para concluir, leia o qrcode abaixo:</p>
+                <img id="img1" src="qrcode.png">
+
+            </div>
+        </div>
+
+        <script>
+            // Expandible itens
+           var coll = document.getElementsByClassName("collapsible");
+           var i;
+   
+           for (i = 0; i < coll.length; i++) {
+               coll[i].addEventListener("click", function() {
+                   this.classList.toggle("active");
+                   var content = this.nextElementSibling;
+                   if (content.style.display === "block") {
+                       content.style.display = "none";
+                   } else {
+                       content.style.display = "block";
+                   }
+               });
+           }
+   
+            // Login Modal 
+           var modal = document.getElementById("modalLogin");
+           var modalQrcode = document.getElementById("modalQrcode");
+           var loginButton = document.getElementById("userName");
+           var span = document.getElementsByClassName("close")[0];
+
+           loginButton.onclick = function() {
+                modal.style.display = "block";
+            }
+    
+            span.onclick = function() {
+               modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+                
+                if (event.target == modalQrcode) {
+                    modalQrcode.style.display = "none";
+                }
+            }
+
+            function validateLogin(form) {
+               validadeEmail(form)
+               validatePassword(form)   
+           
+               if (validadeEmail(form) &&
+               validatePassword(form)) {
+                   loginUser()
+               }                            
+            }    
+   
+           function validadeEmail(form) {
+               if (form.emailLogin.value == "user@gmail.com") {
+                   return true;
+               } else {
+                   alert("Insira um email válido.")
+                   return false;
+               }     
+           }
+   
+           function validatePassword(form) {
+               if (form.passwordLogin.value == "123456") {
+                   return true;
+                } else {
+                   alert("Sua senha está incorreta.")
+                   return false;
+                }
+            }
+        
+           function loginUser() {
+                event.preventDefault();
+                document.getElementById("userName").innerHTML = "Alana Cardoso";
+                modal.style.display = "none";
+            }
+   
+            //Validate Donation Items
+           function validateDonation(form) {
+               event.preventDefault()
+   
+               if (form.donation.value == "") {
+                   alert("Insira um valor.");
+               } else {
+                   modalQrcode.style.display = "block"
+               }
+           }
+   
+           function closeQrcodeModal() {
+            modalQrcode.style.display = "none";
+           }
+
+           var btn = document.getElementById("btn");
+            btn.addEventListener("click", function() {
+                validateServiceDonation()
+            }, false);
+
+            //Tentamos incluir os valores pelo form, mas não conseguimos (se puder nos explicar novamente esse ponto seria ótimo!).
+            //Erro apresentado: Uncaught ReferenceError: form is not defined
+           function validateServiceDonation() {
+                var formDate = document.getElementById("date").value;
+                var formServiceType = document.getElementById("serviceType").value;
+               event.preventDefault()
+        
+               if (formServiceType == "") {
+                   alert("Insira um serviço.");
+               } else if (formDate == "") {
+                   alert("Insira uma data válida.");
+               } else {
+                   alert("Obrigado pela doação! Logo entraremos em contato.")
+               }
+           }
+       </script>
+    </body>
+</html>
